@@ -20,7 +20,13 @@ async function getPriceData() {
     console.error("Error fetching price data:", e);
     return null;
   });
-  if (!priceData) return;
+  const circulatingSupply = await ofetch<number>(
+    "https://neptunefundamentals.org/rpc/circulating_supply"
+  ).catch((e) => {
+    console.error("Error fetching circulating supply:", e);
+    return null;
+  });
+  if (!priceData || !circulatingSupply) return;
 
   console.log("Fetched price data");
   if (!priceData || !priceData.quotes || !priceData.quotes.USD) {
@@ -28,7 +34,7 @@ async function getPriceData() {
     return;
   }
   await Database.setPrice(priceData.quotes.USD.price);
-  await Database.setMarketCap(priceData.quotes.USD.market_cap);
+  await Database.setMarketCap(priceData.quotes.USD.price * circulatingSupply);
   await Database.setVolume(priceData.quotes.USD.volume_24h);
   await Database.setPriceChange({
     hour: priceData.quotes.USD.percent_change_1h,
