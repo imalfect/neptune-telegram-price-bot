@@ -14,8 +14,8 @@ export default new Command(
 
     ctx.replyWithHTML(
       `<b>Neptune Cash (NPT)</b>
-📈 Trading Volume (24h): <code>${formatLargeNumber(volume.value)}</code>
-🔢 Raw Volume: <code>$${volume.value.toLocaleString()}</code>
+📈 Trading Volume (24h): <code>${formatLargeNumber(volume.value, "$")}</code>
+🔢 Raw Volume: <code>${formatLargeNumber(volume.value, "$")}</code>
 
 🕐 <i>Last updated ${formatRelativeTime(volume.lastUpdated)}</i>
         `
