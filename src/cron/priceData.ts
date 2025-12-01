@@ -4,7 +4,7 @@ import { type PriceData } from "../types/coinpaprika";
 import { Database } from "../db/db";
 
 const job = new CronJob(
-  "*/3 * * * *", // cronTime
+  "*/6 * * * *", // cronTime
   getPriceData, // onTick
   null, // onComplete
   true, // start
