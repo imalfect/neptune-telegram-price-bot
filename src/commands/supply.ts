@@ -11,12 +11,12 @@ export default new Command(
       overview: {
         total_reward: string;
       };
-    }>("https://neptune.vxb.ai/api/overview").catch((e) => {
+    }>("http://161.97.150.88:3001/api/overview").catch((e) => {
       console.error("Error fetching circulating supply:", e);
       return null;
     });
     const supply = supplyData
-      ? Number(BigInt(supplyData.overview.total_reward) / 2n / 10n ** 30n)
+      ? Number(BigInt(supplyData.overview.total_reward) / 10n ** 30n)
       : 0;
 
     ctx.replyWithHTML(
