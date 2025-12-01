@@ -13,7 +13,7 @@ export default new Command(
     }
 
     ctx.replyWithHTML(
-      `<b>Neptune Cash (NPT)</b>
+      `<b>Neptune Privacy (XNT)</b>
 📊 Market Cap: <code>${formatLargeNumber(marketCap.value, "$")}</code>
 💰 Raw Value: <code>$${marketCap.value.toLocaleString()}</code>
 

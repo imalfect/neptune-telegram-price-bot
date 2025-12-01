@@ -12,7 +12,7 @@ export default new Command(
       return;
     }
     ctx.replyWithHTML(
-      `<b>Neptune Cash (NPT)</b>
+      `<b>Neptune Privacy (XNT)</b>
 💵 <code>${price.value.toFixed(6)}</code> USD
 
 🕐 <i>Last updated ${formatRelativeTime(price.lastUpdated)}</i>

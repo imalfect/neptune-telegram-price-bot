@@ -7,17 +7,21 @@ export default new Command(
   "supply",
   "get the current supply volume of Neptune",
   async (ctx) => {
-    const circulatingSupply = await ofetch<number>(
-      "https://neptunefundamentals.org/rpc/circulating_supply"
-    );
-    const totalSupply = await ofetch<number>(
-      "https://neptunefundamentals.org/rpc/total_supply"
-    );
+    const supplyData = await ofetch<{
+      overview: {
+        total_reward: string;
+      };
+    }>("https://neptune.vxb.ai/api/overview").catch((e) => {
+      console.error("Error fetching circulating supply:", e);
+      return null;
+    });
+    const supply = supplyData
+      ? Number(BigInt(supplyData.overview.total_reward) / 2n / 10n ** 30n)
+      : 0;
 
     ctx.replyWithHTML(
-      `<b>Neptune Cash (NPT) Supply</b>
-📈 Cirulating Supply: <code>${formatLargeNumber(circulatingSupply)}</code>
-🔢 Total Supply: <code>${formatLargeNumber(totalSupply)}</code>
+      `<b>Neptune Privacy (XNT) Supply</b>
+🔢 Total Supply: <code>${formatLargeNumber(supply)}</code>
 🕐 <i>Live data from RPC</i>
         `
     );

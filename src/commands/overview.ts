@@ -34,13 +34,13 @@ export default new Command(
     const trendEmoji = getTrendEmoji(priceChange!.value.day);
 
     ctx.replyWithHTML(
-      `${trendEmoji} <b>Neptune Cash (NPT) Overview</b>
+      `${trendEmoji} <b>Neptune Privacy (XNT) Overview</b>
 
 💵 <b>Current Price:</b> <code>$${price!.value.toFixed(6)}</code>
 
 📊 <b>Market Data:</b>
-• Market Cap: <code>${formatLargeNumber(marketCap!.value)}</code>
-• Trading Volume (24h): <code>${formatLargeNumber(volume!.value)}</code>
+• Market Cap: <code>${formatLargeNumber(marketCap!.value, "$")}</code>
+• Trading Volume (24h): <code>${formatLargeNumber(volume!.value, "$")}</code>
 
 📈 <b>Price Changes:</b>
 • 1 Hour: <code>${formatChange(priceChange!.value.hour)}</code>

@@ -13,7 +13,7 @@ export default new Command(
     }
 
     ctx.replyWithHTML(
-      `<b>Neptune Cash (NPT)</b>
+      `<b>Neptune Privacy (XNT)</b>
 📈 Trading Volume (24h): <code>${formatLargeNumber(volume.value, "$")}</code>
 🔢 Raw Volume: <code>${formatLargeNumber(volume.value, "$")}</code>
 

@@ -13,7 +13,7 @@ export default new Command(
     }
 
     ctx.replyWithHTML(
-      `<b>Neptune Cash (NPT) Price Changes</b>
+      `<b>NNeptune Privacy (XNT) Price Changes</b>
 
 ⏰ <b>1 Hour:</b> <code>${formatChange(priceChange.value.hour)}</code>
 📅 <b>24 Hours:</b> <code>${formatChange(priceChange.value.day)}</code>
